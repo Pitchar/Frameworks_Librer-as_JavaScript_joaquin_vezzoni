@@ -32,27 +32,10 @@ var verifica = false;
 
      }
   }
-  agregarDulcesEvents();
+   agregarDulcesEvents();
    HacerJugadaVertical();
    HacerJugadaHorizontal();
 }
-
-function ReiniciarJuego(verifica) {
-  clearTimeout(temporizador);
-  $(".btn-reinicio").text("Iniciar");
-  if (verifica) {
-    $(".panel-tablero").show("slow");
-    $(".panel-score").animate(
-      {
-        width: "-=50"
-      }, 1000
-    );
-    verifica=false;
-  };
-}
-
-
-
 
 function agregarDulcesEvents() {
   $('img').draggable({
@@ -69,6 +52,42 @@ function agregarDulcesEvents() {
   });
   HacerJugadaVertical();
   HacerJugadaHorizontal();
+}
+
+function moverDulce(event, candyDrag)
+{
+  var candyDrag = $(candyDrag.draggable);
+  var dragSrc = candyDrag.attr('src');
+  var candyDrop = $(this);
+  var dropSrc = candyDrop.attr('src');
+  candyDrag.attr('src', dropSrc);
+  candyDrop.attr('src', dragSrc);
+
+  setTimeout(function () {
+    HacerJugadaVertical();
+    HacerJugadaHorizontal();
+    actualizarMovimientos();
+  }, 500);
+}
+
+
+
+
+
+
+
+function ReiniciarJuego(verifica) {
+  clearTimeout(temporizador);
+  $(".btn-reinicio").text("Iniciar");
+  if (verifica) {
+    $(".panel-tablero").show("slow");
+    $(".panel-score").animate(
+      {
+        width: "-=50"
+      }, 1000
+    );
+    verifica=false;
+  };
 }
 
 $(".btn-reinicio").on("click", function(){
