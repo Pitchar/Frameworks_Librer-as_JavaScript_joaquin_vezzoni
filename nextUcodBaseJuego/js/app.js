@@ -170,6 +170,22 @@ function HacerJugadaVertical()
 
 		}
 
+		function LlenarEspaciosVacios()
+		{
+		  for (var i = 1; i < 8; i++) {
+		    var hijos = 7- $(".col-"+i).children('img').length;
+		    for (var j = 0; j < hijos; j++) {
+		      var tipoDulce= Math.floor((Math.random() * 4) + 1);
+		      var elementoImg=document.createElement('img')
+		      $(".col-"+i).prepend(elementoImg)
+		      $(elementoImg).addClass('elemento')
+		      $(elementoImg).attr('src',"image/"+tipoDulce+".png")
+		    };
+		  };
+
+		  agregarDulcesEvents();
+		}
+
 
 
 function ReiniciarJuego(verifica) {
@@ -185,6 +201,18 @@ function ReiniciarJuego(verifica) {
     verifica=false;
   };
 }
+
+function FinalizarJuego() {
+  clearTimeout(temporizador);
+  $(".panel-tablero").hide("slow");
+  $(".panel-score").animate(
+    {
+      width: "+=50"
+    }, 1000
+  );
+  verifica=true;
+}
+
 
 $(".btn-reinicio").on("click", function(){
   var nombre =$(".btn-reinicio").text();
@@ -217,14 +245,5 @@ $(".btn-reinicio").on("click", function(){
     updateReloj();
     CaidaDeDulces();
 })
-})
-
-
-
-
-
-
-
-
-
+});
 });
