@@ -9,7 +9,7 @@ function updateReloj() {
     tiempoAtras= "0";
     tiempoAtras+= ":00";
     tiempoAtras+= ":00";
-  
+    FinalizarJuego();
   }
   else {
     tiempoAtras= (hora < 10) ? hora :hora;

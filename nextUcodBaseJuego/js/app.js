@@ -70,7 +70,27 @@ function moverDulce(event, candyDrag)
   }, 500);
 }
 
+function actualizarMovimientos()
+{
+  var actualValue = Number($('#movimientos-text').text());
+  var result = actualValue += 1;
+  $('#movimientos-text').text(result);
+}
+function actualizaPuntuacion(eliminados)
+{
+  var puntosActuales = Number($('#score-text').text());
+  var nuevosPuntos = puntosActuales += eliminados;
+  $('#score-text').text(nuevosPuntos);
+}
 
+
+function constrainCandyMovement(event, candyDrag) {
+  candyDrag.position.top = Math.min(100, candyDrag.position.top);
+  candyDrag.position.bottom = Math.min(100, candyDrag.position.bottom);
+  candyDrag.position.left = Math.min(100, candyDrag.position.left);
+  candyDrag.position.right = Math.min(100, candyDrag.position.right);
+  
+}
 
 
 
