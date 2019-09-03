@@ -89,10 +89,31 @@ function constrainCandyMovement(event, candyDrag) {
   candyDrag.position.bottom = Math.min(100, candyDrag.position.bottom);
   candyDrag.position.left = Math.min(100, candyDrag.position.left);
   candyDrag.position.right = Math.min(100, candyDrag.position.right);
-  
+
 }
 
-
+function HacerJugadaVertical()
+{
+  var eliminados = 0
+  for (var x = 1; x <8; x++) {
+    var vecesVertical=0;
+    var dulceAnterior="";
+    var imagenesEliminar = new Array();
+    for (var y = 0; y < 7; y++) {
+      var dulce= $(".col-"+x).children('img')[y].src;
+      if (dulce==dulceAnterior ) {
+        vecesVertical+=1;
+        if (vecesVertical==1) {
+          imagenesEliminar[1]=$(".col-"+x).children('img')[y-1];
+        }
+        imagenesEliminar[vecesVertical+1]=$(".col-"+x).children('img')[y];
+      }
+      else if (dulce!=dulceAnterior && vecesVertical<2){
+        vecesVertical=0;
+        imagenesEliminar = new Array();
+      }
+      var dulceAnterior = dulce;
+    }
 
 
 
