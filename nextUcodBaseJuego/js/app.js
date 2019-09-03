@@ -8,12 +8,12 @@ var verifica = false;
 
 	function CambiarColor(elemento){
 		$(".main-titulo").css("color","white");
-		setTimeout(CambiarColor2,1000)
+		setTimeout(CambiarColor2,500)
 	}
 
 	function CambiarColor2(elemento){
 		$(".main-titulo").css("color","yellow");
-		setTimeout(CambiarColor,1000)
+		setTimeout(CambiarColor,500)
 	}
 
 	CambiarColor();
@@ -115,7 +115,7 @@ function HacerJugadaVertical()
       var dulceAnterior = dulce;
     }
 
-		/*Borrar los dulces*/
+		//Borrar los dulces
 		    if (vecesVertical>=2){
 		      for (var i = 1; i <= vecesVertical+1; i++) {
 		        imagenesEliminar[i].remove();
@@ -124,7 +124,51 @@ function HacerJugadaVertical()
 		      actualizaPuntuacion(imagenesEliminar.length);
 		    };
 
+			}
+		  if (eliminados>1) {
+		    LlenarEspaciosVacios();
+		  };
 
+		  //fin de funcion
+		}
+
+		function HacerJugadaHorizontal()
+		{
+		  var eliminadosX = 0
+		  for (var x = 1; x < 8; x++) {
+		    var vecesHorizontal=0;
+		    var dulceAnteriorX="";
+		    var imagenesEliminarX = new Array();
+		    var z=0
+		    for (var y = 0; y < 7; y++) {
+		      z+=1
+		      var dulceX = $(".col-"+z).children('img')[x-1].src;
+		      if (dulceX==dulceAnteriorX) {
+		        vecesHorizontal+=1;
+		        if (vecesHorizontal==1) {
+		          var anterior = z-1
+		          imagenesEliminarX[1]=$(".col-"+anterior).children('img')[x-1];
+		        }
+		        imagenesEliminarX[vecesHorizontal+1]=$(".col-"+z).children('img')[x-1]
+
+		      } else if (dulceX!=dulceAnteriorX && vecesHorizontal<2){
+		        vecesHorizontal=0;
+		        imagenesEliminarX = new Array();
+		      };
+		     var dulceAnteriorX = dulceX;
+		    };
+		    if (vecesHorizontal>=2){
+		      /*Borrar los dulces*/
+		      for (var h = 1; h <= vecesHorizontal+1; h++) {
+		        imagenesEliminarX[h].remove();
+		        eliminadosX += 1;
+		      }
+		      actualizaPuntuacion(imagenesEliminarX.length);
+		    };
+		    if (eliminadosX>1) {LlenarEspaciosVacios();};
+		  };
+
+		}
 
 
 
