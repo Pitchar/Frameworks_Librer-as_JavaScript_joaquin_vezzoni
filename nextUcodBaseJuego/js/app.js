@@ -115,6 +115,17 @@ function HacerJugadaVertical()
       var dulceAnterior = dulce;
     }
 
+		/*Borrar los dulces*/
+		    if (vecesVertical>=2){
+		      for (var i = 1; i <= vecesVertical+1; i++) {
+		        imagenesEliminar[i].remove();
+		        eliminados += 1;
+		      };
+		      actualizaPuntuacion(imagenesEliminar.length);
+		    };
+
+
+
 
 
 function ReiniciarJuego(verifica) {
