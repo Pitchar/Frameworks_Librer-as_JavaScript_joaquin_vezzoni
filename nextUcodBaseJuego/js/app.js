@@ -171,3 +171,14 @@ $(document).ready(function(){
 				 }
 		 });
  };
+
+ var llenarpantalla = function(){
+			for(i=1;i<8;i++){
+
+					$.each(cols,function(key){
+								var num = key+1;
+								var dat = 8-i
+								 $( "<div id='div_"+dat+num+"' class ='elemento_div ' ></div>" ).appendTo(".col-"+num);
+					});
+			};
+ };
