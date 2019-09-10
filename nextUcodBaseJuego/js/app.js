@@ -29,4 +29,56 @@ $(document).ready(function(){
  var tiempo_reloj = 120;
  var se_termino_el_tiempo = false;
 
- 
+ var reloj = function(){
+			var $stop  = $(".btn-reinicio");
+
+			var timer = new Timer({
+
+					onstart : function(millisec) {
+						se_termino_el_tiempo=false;
+
+					},
+					ontick  : function(millisec) {
+
+						var min = millisec / 1000 / 60;
+						 var r = min % 1;
+						 var sec = Math.floor(r * 60);
+						 if (sec < 10) {
+							 sec = '0'+sec;
+						 }
+							min = Math.floor(min);
+
+
+						 $("#timer").text('0'+min+':'+sec);
+
+					},
+					onstop  : function() {
+						 $("#timer").text(txt_reloj);
+						 ReniciarJuego();
+					},
+					onend   : function() {
+						se_termino_el_tiempo = true;
+						$("#timer").text(txt_reloj);
+
+						setTimeout(function() {
+
+							$(".elemento_div").each(function(key){
+									this.remove();
+							 });
+
+						 });
+						 FinalizarJuego();
+
+
+					}
+			});
+
+					timer.start(tiempo_reloj);
+
+			$stop.on('click', function() {
+
+							timer.stop();
+
+			});
+
+ };
