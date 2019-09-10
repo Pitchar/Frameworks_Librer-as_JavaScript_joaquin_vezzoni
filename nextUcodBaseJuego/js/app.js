@@ -415,3 +415,64 @@ $(document).ready(function(){
 					    });
 
 					};
+
+					var crea_arr = function(){
+
+					  var arr = [];
+
+					     for(j=1;j<8;j++){
+
+					       var cht = 0;
+
+					       for (i=1;i<8;i++){
+
+					       var miniarr =[];
+					       var $cel = $("#div_"+i+j);
+
+					       if (i==7){
+
+					              if($cel.hasClass('hide')){
+
+					                   cht = cht +1;
+
+					              }else{
+					                var dtn = i - cht;
+
+					              miniarr.push(i);
+					              miniarr.push(dtn);
+					              miniarr.push(j);
+					              arr.push(miniarr);
+
+					             };
+
+					       }else{
+
+					              if($cel.hasClass('hide')){
+
+					                   cht = cht +1;
+
+					              }else{
+					               var dtn = i - cht;
+					               miniarr.push(i);
+					               miniarr.push(dtn);
+					               miniarr.push(j);
+					               arr.push(miniarr);
+					            };
+					         };
+					      };
+
+					       var u = 8 - cht;
+					       var a = 8;
+
+					       for (b = u; b < 8; b++){
+
+					        var miniarr =[];
+					         miniarr.push(a);
+					         miniarr.push(b);
+					         miniarr.push(j);
+					         arr.push(miniarr);
+					         a++;
+					       };
+					  };
+					crea_on_top(arr);
+					};
