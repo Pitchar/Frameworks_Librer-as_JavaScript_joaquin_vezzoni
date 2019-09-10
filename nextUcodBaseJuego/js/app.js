@@ -116,3 +116,17 @@ $(document).ready(function(){
 				$("#score-text").text("0");
 	 };
  });
+
+ var init = function(){
+
+ cols = ["col-1","col-2","col-3","col-4","col-5","col-6","col-7"];
+ mov = 0;
+ puntaje = 0;
+
+ llenarpantalla();
+ asignaid();
+ marcar();
+ preparatablero();
+ reloj();
+
+ };
