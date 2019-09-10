@@ -594,3 +594,45 @@ $(document).ready(function(){
 					                });
 
 					};
+
+					function FinalizarJuego() {
+
+					if (!se_termino_el_tiempo) {
+						console.log('Estoy dentro del IF');
+
+					} else {
+						console.log('Estoy dentro del ELSE');
+						$(".btn-reinicio").text("Iniciar");
+							$(".panel-tablero").hide("slow");
+							$(".panel-score").animate(
+						{
+							width: "100%"
+						}, 1000, function(){
+							$(this).prepend("<h2 class='titulo-over'>Juego Terminado</h2>")
+						})
+						$('.time').hide(500)
+						$('.puntaje').hide()
+
+						}
+
+					};
+
+					function ReniciarJuego() {
+						if (se_termino_el_tiempo) {
+							console.log('Estoy dentro del IF 2');
+								}
+								else {
+									console.log('Estoy dentro del ELSE 2');
+									$(".btn-reinicio").on('click')
+
+													location.reload();
+													$(".btn-reinicio").text("Iniciar");
+								}
+
+				};
+
+
+
+
+
+					});
