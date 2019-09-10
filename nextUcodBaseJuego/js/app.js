@@ -82,3 +82,37 @@ $(document).ready(function(){
 			});
 
  };
+
+ $(".btn-reinicio").click(function(){
+
+	 if($(".btn-reinicio")[0].innerText == "Iniciar"){
+
+		 $(".btn-reinicio").text("Reiniciar");
+					 $(".elemento_div").each(function(key){
+							 this.remove();
+				 });
+				 mov = 0;
+				puntaje = 0;
+
+				movimiento();
+				punt();
+
+		 init();
+
+	 }else {
+		 $("#timer").text(txt_reloj);
+
+		 $(".btn-reinicio").text("Iniciar");
+					 $(".elemento_div").each(function(key){
+							 this.remove();
+				 });
+
+		 mov = 0;
+		puntaje = 0;
+
+		movimiento();
+		punt();
+			$("#movimientos-text").text("0");
+				$("#score-text").text("0");
+	 };
+ });
