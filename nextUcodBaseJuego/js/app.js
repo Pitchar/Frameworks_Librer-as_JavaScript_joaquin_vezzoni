@@ -12,3 +12,21 @@ $(document).ready(function(){
 	}
 
 	CambiarColor();
+
+	var punt = function(puntaje){
+
+	  $("#score-text").text(puntaje);
+
+	};
+
+	var movimiento = function(mov){
+
+	$("#movimientos-text").text(mov);
+
+	};
+ var se_inicia_el_tiempo = true;
+ var txt_reloj = '02:00';
+ var tiempo_reloj = 120;
+ var se_termino_el_tiempo = false;
+
+ 
