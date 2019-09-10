@@ -281,3 +281,23 @@ $(document).ready(function(){
 								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
 								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
 					 };
+
+
+					 //incorpora el panel de navegacion para cada elemento draggable
+				 	     drop_drag_elem(dat,num);
+				 	  };
+
+				 	//asignar ID a cada imagen de cada div y establecer el panel de navegacion y hacerlo draggable (init)
+				 	var asignaid = function(){
+
+				 	     $(".elemento_div").each(function(key){
+
+				 	        var dat = this.id[4];
+				 	        var num = this.id[5];
+				 	        var num_aleat = 1 + Math.floor(Math.random() * 4);
+
+				 	       $( "<img id='elem_"+dat+num+"' src='./image/"+num_aleat+".png' class='elemento ' ></img>" ).prependTo("#div_"+dat+num);
+
+				 	       est_paneles(dat,num);
+				 	    });
+				 	};
