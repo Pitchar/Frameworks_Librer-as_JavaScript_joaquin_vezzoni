@@ -350,3 +350,68 @@ $(document).ready(function(){
 					     };
 					  };
 					};
+
+					var preparatablero = function(){
+
+					  do{
+
+					    $(".elemento").each(function(key){
+
+					           $(".elemento.marcar").remove();
+
+					      });
+					      $(".elemento_div").each(function(key){
+
+					        var hjos = this.children.length;
+
+					        if(hjos == 0){
+
+					             var dat = this.id[4];
+					             var num = this.id[5];
+					             var num_aleat = 1 + Math.floor(Math.random() * 4);
+
+					            $( "<img id='elem_"+dat+num+"' src='./image/"+num_aleat+".png' class='elemento ' ></img>" ).prependTo("#div_"+dat+num);
+
+					        };
+
+					      });
+
+					      marcar();
+
+					     var n = $(".elemento.marcar").length;
+
+					  }while(n!=0);
+
+					   establ_cu();
+					};
+
+					var runEffect_marc = function(){
+
+					 $(".elemento").each(function(key){
+
+					   var cl =  $(".elemento").hasClass("marcar");
+
+					       if(cl == true){
+					        var pu = $(".elemento.marcar").length;
+					         puntaje = (puntaje + (pu/49));
+					         put = puntaje.toFixed(0)
+					         pu_10 = put*10;
+					         punt(pu_10);
+					        };
+
+					     $(".elemento.marcar").toggle("pulsate", {times:3}, 1000 ,function(){
+					         $(".elemento.marcar").parent().addClass("hide");
+
+					          $(".elemento.marcar").remove();
+
+					          crea_arr();
+					         });
+					      });
+
+					     $(".elemento_div").each(function(key){
+
+					       $(".elemento_div")[0].className = $(".elemento_div")[0].className.replace(/\bcl_coord_.*?\b/g, '');
+
+					    });
+
+					};
