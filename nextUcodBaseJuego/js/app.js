@@ -182,3 +182,102 @@ $(document).ready(function(){
 					});
 			};
  };
+
+ var est_paneles = function(dat,num){
+
+					if (dat >1 && num >1 && dat <7 && num <7){
+
+							var dat_1 = dat-1;
+							var dat_2 = (+dat)+1;
+							var num_1 = num-1;
+							var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_2+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_2);
+
+					 }else if (dat == 1 && num >1 && num <7) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_2+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_2);
+
+					 }else if (num == 1 && dat >1 && dat <7) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_2+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_2);
+
+					 }else if (num == 7 && dat >1 && dat <7) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_2+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
+
+					 }else if (dat == 7 && num >1 && num <7) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_2);
+
+					 }else if (dat == 1 && num == 1) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_2);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_2+num);
+
+					 }else if (dat == 1 && num == 7) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_2+num);
+
+					 }else if (dat == 7 && num == 1) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_2);
+
+					 }else if (dat == 7 && num == 7) {
+
+						 var dat_1 = dat-1;
+						 var dat_2 = (+dat)+1;
+						 var num_1 = num-1;
+						 var num_2 = (+num)+1;
+
+								$("#div_"+dat+num).addClass("cl_coord_"+dat_1+num);
+								$("#div_"+dat+num).addClass("cl_coord_"+dat+num_1);
+					 };
