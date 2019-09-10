@@ -301,3 +301,52 @@ $(document).ready(function(){
 				 	       est_paneles(dat,num);
 				 	    });
 				 	};
+
+					var establ_cu = function(){
+
+					    $(".elemento_div").each(function(key){
+
+					        var dat = this.id[4];
+					        var num = this.id[5];
+
+					       est_paneles(dat,num);
+					    });
+
+					};
+
+					var marcar = function(){
+
+					  for (j=1;j<8;j++){
+					     for (i=1;i<8;i++){
+
+					       var i_1 = String(i+1);
+					       var i_2 = String(i+2);
+					       var j_1 = String(j+1);
+					       var j_2 = String(j+2);
+
+					       var a = $("#elem_"+i+j).attr('src');
+					       var b = $("#elem_"+i_1+j).attr('src');
+					       var c = $("#elem_"+i_2+j).attr('src');
+
+					       var d = $("#elem_"+i+j).attr('src');
+					       var e = $("#elem_"+i+j_1).attr('src');
+					       var f = $("#elem_"+i+j_2).attr('src');
+
+					       if(a == b && b == c){
+
+					           $("#elem_"+i+j).addClass('marcar');
+					           $("#elem_"+i_1+j).addClass('marcar');
+					           $("#elem_"+i_2+j).addClass('marcar');
+
+					        };
+
+					       if(d == e && e == f){
+
+					           $("#elem_"+i+j).addClass('marcar');
+					           $("#elem_"+i+j_1).addClass('marcar');
+					           $("#elem_"+i+j_2).addClass('marcar');
+
+					       };
+					     };
+					  };
+					};
