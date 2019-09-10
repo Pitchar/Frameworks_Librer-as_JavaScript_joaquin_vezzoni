@@ -130,3 +130,44 @@ $(document).ready(function(){
  reloj();
 
  };
+
+
+ var drop_drag_elem = function(dat,num) {
+		 $("#div_"+dat+num+"").droppable({
+ });
+
+		 $("#elem_"+dat+num+"").draggable({
+				 snap: "#div_"+dat+num+"",
+				 snapMode: "inner",
+				 revert:  function(droppedElement) {
+						 var validDrop = droppedElement && droppedElement.hasClass("cl_coord_"+dat+num);
+
+									 if (validDrop == true){
+
+										 mov = mov +1;
+
+										 var a = dat;
+										 var b = num;
+										 var c = $('#elem_'+dat+num).attr('src');
+
+										 var d = droppedElement.attr('id')[4];
+										 var e = droppedElement.attr('id')[5];
+
+										 $('#elem_'+a+b).remove();
+
+											 var f =  $('#elem_'+d+e).attr('src');
+
+										 $('#elem_'+d+e).remove();
+
+										 $( "<img id='elem_"+a+b+"' src='"+f+"' class='elemento '  ></img>" ).prependTo("#div_"+a+b);
+										 $( "<img id='elem_"+d+e+"' src='"+c+"' class='elemento '  ></img>" ).prependTo("#div_"+d+e);
+										 drop_drag_elem(a,b);
+										 drop_drag_elem(d,e);
+										 movimiento(mov);
+										 marcar();
+										 runEffect_marc();
+									 };
+						 return !validDrop;
+				 }
+		 });
+ };
